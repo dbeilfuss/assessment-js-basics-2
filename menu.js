@@ -98,20 +98,70 @@ console.log(pizza.category);
 //CODE HERE
 const foodArr = [
   {
-    name: `Large Pizza`,
-    price: 12.99,
-    category: `Main Course`,
+    name: `large pizza`,
+    price: 14.99,
+    category: `main course`,
     popularity: 5,
     rating: 4,
-    tags: [`kid-friendly`, `finger-food`, `easy-to-deliver`, `group meal`],
+    tags: [
+      `kid-friendly`,
+      `finger-food`,
+      `easy-to-deliver`,
+      `group meal`,
+      `authentic-italian`,
+      `american`,
+    ],
   },
   {
-    name: `Pizza Slice`,
-    price: 6.99,
-    category: `Main Course`,
+    name: `garlic bread`,
+    price: 4.99,
+    category: `Side`,
     popularity: 5,
     rating: 4,
-    tags: [`kid-friendly`, `finger-food`, `easy-to-deliver`],
+    tags: [
+      `kid-friendly`,
+      `finger-food`,
+      `easy-to-deliver`,
+      `authentic-italian`,
+    ],
+  },
+  {
+    name: `spagetti`,
+    price: 7.99,
+    category: `main course`,
+    popularity: 4,
+    rating: 4,
+    tags: [`authentic-italian`],
+  },
+  {
+    name: `pizza slice`,
+    price: 6.99,
+    category: `main course`,
+    popularity: 4,
+    rating: 4,
+    tags: [
+      `kid-friendly`,
+      `finger-food`,
+      `easy-to-deliver`,
+      `authentic-italian`,
+      `american`,
+    ],
+  },
+  {
+    name: `rigatoni`,
+    price: 11.99,
+    category: `main course`,
+    popularity: 3,
+    rating: 5,
+    tags: [`authentic-italian`],
+  },
+  {
+    name: `fettuccine`,
+    price: 10.99,
+    category: `main course`,
+    popularity: 4,
+    rating: 5,
+    tags: [`authentic-italian`],
   },
   {
     name: `salad`,
@@ -124,7 +174,7 @@ const foodArr = [
   {
     name: `hamburger`,
     price: 7.99,
-    category: `Main Course`,
+    category: `main course`,
     popularity: 3,
     rating: 4,
     tags: [`lunch`, `finger-food`],
@@ -133,14 +183,14 @@ const foodArr = [
     name: `cheese burger`,
     price: 9.99,
     category: `Main Course`,
-    popularity: 4,
-    rating: 5,
+    popularity: 3,
+    rating: 3,
     tags: [`lunch`, `finger-food`],
   },
   {
     name: `hotdog`,
     price: 6.99,
-    category: `Main Course`,
+    category: `main course`,
     popularity: 3,
     rating: 3,
     tags: [`kid-friendly`, `finger-food`, `easy-to-deliver`],
@@ -149,8 +199,8 @@ const foodArr = [
     name: `french fries`,
     price: 3.99,
     category: `side`,
-    popularity: 5,
-    rating: 5,
+    popularity: 4,
+    rating: 3,
     tags: [`kid-friendly`, `finger-food`, `easy-to-deliver`],
   },
 ];
@@ -234,4 +284,4 @@ You'll have to console.log to see the filtered array
 
 //CODE HERE
 
-console.log(filterByProperty(`rating`, 4, `above`));
+console.log(filterByProperty(`popularity`, 4, `above`));
