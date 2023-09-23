@@ -83,6 +83,20 @@ console.log(calcFinalPrice(32.96, 5, 0.07));
 
 /*
     TEXT ANSWER HERE
+    Customer Information:
+    * Identidy Information
+        - firstName
+        - lastName
+    * Location Information
+        - address
+        - city
+        - zipCode
+        - state
+    * Contact Information
+        - email
+        - cell phone
+    * History
+        - pastOrders
 
 */
 
@@ -92,3 +106,100 @@ console.log(calcFinalPrice(32.96, 5, 0.07));
 */
 
 //CODE HERE
+
+const customerList = [
+  {
+    identity: {
+      firstName: "Matthew",
+      lastName: "Smith",
+    },
+    location: {
+      address: `127 N Washington`,
+      city: `Springfield`,
+      zipCode: `49431`,
+      state: `PA`,
+    },
+    contact: {
+      email: `m.smith@gmail.com`,
+      cellPhone: `784-983-5628`,
+    },
+    history: [
+      [
+        `2023/04/12`,
+        {
+          name: "pizza",
+          price: 9.99,
+        },
+        {
+          name: "pasta",
+          price: 8.99,
+        },
+      ],
+      [
+        `2023/05/23`,
+        {
+          name: "pizza",
+          price: 9.99,
+        },
+      ],
+    ],
+  },
+  {
+    identity: {
+      firstName: "John",
+      lastName: "Appleseed",
+    },
+    location: {
+      address: `4683 E 23rd Ave.  Apt. 23`,
+      city: `Springfield`,
+      zipCode: `49432`,
+      state: `PA`,
+    },
+    contact: {
+      email: `john.boy@hotmail.com`,
+      cellPhone: `784-983-8743`,
+    },
+    history: [
+      [
+        `2023/02/16`,
+        {
+          name: "pizza",
+          price: 9.99,
+        },
+        {
+          name: "salad",
+          price: 7.99,
+        },
+      ],
+      [
+        `2023/04/09`,
+        {
+          name: "pizza",
+          price: 9.99,
+        },
+      ],
+      [
+        `2023/06/03`,
+        {
+          name: "pizza",
+          price: 9.99,
+        },
+        {
+          name: "pizza",
+          price: 9.99,
+        },
+        {
+          name: "salad",
+          price: 7.99,
+        },
+      ],
+    ],
+  },
+];
+
+console.log(
+  customerList.filter((customer) => customer.identity.lastName === `Appleseed`)
+);
+console.log(customerList[1].history);
+
+/// So I used to work at Domino's Pizza as a delivery driver, and running this code in the terminal reminds me very much of their ancient interface; standing there, taking order over the phone, staring at a dos-looking screen.  pleasant memories.  :-)
