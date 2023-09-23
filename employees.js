@@ -22,13 +22,19 @@
 //CODE HERE
 
 class Employee {
-  constructor(name, shifts) {
+  constructor(name, shift) {
     this.name = name;
-    this.shifts = shifts;
+    this.shifts = [shift];
   }
 
   getSchedule() {
     console.log(`${this.name} works on ${this.shifts}`);
+  }
+
+  // function to add more shifts that employees are available to work
+  addShift(shift) {
+    this.shifts.push(shift);
+    console.log(`shift for ${this.name} modified `);
   }
 }
 
@@ -44,22 +50,7 @@ class Employee {
 
 //CODE HERE
 
-/*
-    I'm veering from the directions a bit, creating a way to invoke functions that will add employees.
-*/
-
-// Modifyable array to store the employee objects
-let employeeList = [];
-
-// Function to add new employees
-const newEmployee = (name, shifts) => {
-  const employee = new Employee(name, shifts);
-  employeeList.push(employee);
-
-  console.log(`new employee, ${name} created,`, employeeList);
-};
-
-newEmployee(`Jasmine`, `mornings`);
+const empOne = new Employee(`Jasmine`, `mornings`);
 
 /*
     Call the `getSchedule` method on the
@@ -68,14 +59,14 @@ newEmployee(`Jasmine`, `mornings`);
 
 //CODE HERE
 
-const getSchedule = (thisName) => {
-  const thisEmployee = employeeList.filter(
-    (employee) => employee.name === thisName
-  );
-  thisEmployee[0].getSchedule();
-};
+// const getSchedule = (thisName) => {
+//   const thisEmployee = employeeList.filter(
+//     (employee) => employee.name === thisName
+//   );
+//   thisEmployee[0].getSchedule();
+// };
 
-getSchedule(`Jasmine`);
+empOne.getSchedule();
 
 /*
     Make a copy of the empOne object
@@ -91,21 +82,7 @@ getSchedule(`Jasmine`);
 
 //CODE HERE
 
-const duplicateEmployee = (originalName, newName) => {
-  const originalEmployee = employeeList.filter(
-    (employee) => employee.name === originalName
-  );
-  const newEmployee = { ...originalEmployee[0], name: newName };
-  employeeList.push(newEmployee);
-
-  console.log(
-    `employee ${originalName} duplicated to ${newName}`,
-    employeeList
-  );
-};
-
-duplicateEmployee(`Jasmine`, `Nick`);
-newEmployee(`Dan`, `evenings`);
+empTwo = { ...empOne, name: `Nick` };
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -132,19 +109,38 @@ newEmployee(`Dan`, `evenings`);
 
 //CODE HERE
 
+// Modifyable array to store the employee objects - so I can search through them
+let employeeList = [];
+
+/// Manager Class ///
 class Manager extends Employee {
   constructor(name, shifts) {
     super(name, shifts);
+  }
 
-    const getEmployees = () => {
-      const employeeNames = [];
-      employeeList.forEach(employee => {employeeNames.push(employee.name)});
-      }
-      console.log(employeeNames)
-    };
+  // filter employeeList by shifts - looking for shifts that both the employee and the manager share
+  getEmployees() {
+    let managedEmployees = [];
+    this.shifts.forEach((managerShift) => {
+      const thisShiftEmployees = employeeList.filter((eachEmployee) =>
+        eachEmployee.shifts.includes(managerShift)
+      );
+      thisShiftEmployees.forEach((employee) => managedEmployees.push(employee));
+    });
+    let uniqueManagedEmps = [...new Set(managedEmployees)];
 
-    // oh look, I already did this up above - simple copy and paste I think
-    const addEmployees = () => {};
+    console.log(
+      `${this.name} manages ${this.shifts}, and the following employees:`,
+      uniqueManagedEmps
+    );
+  }
+
+  // Function to add new employees
+  addEmployee(name, shifts) {
+    const employee = new Employee(name, shifts);
+    employeeList.push(employee);
+
+    console.log(`new employee, ${name} created.  Welcome ${name}!`);
   }
 }
 
@@ -161,12 +157,37 @@ class Manager extends Employee {
 
 //CODE HERE
 
+const managerOne = new Manager(`Nitin`, `mornings`);
+managerOne.addShift(`afternoons`);
+
+const managerTwo = new Manager(`Matt`, `afternoons`);
+managerTwo.addShift("evenings");
+
 /*
     Call the `getEmployees` method on the
     `manager` object.  
 */
 
 //CODE HERE
+
+// function to add more shifts that employees are available to work
+const addShift = (employee, shift) => {
+  const thisEmployee = employeeList.filter(
+    (eachEmployee) => eachEmployee.name === employee
+  );
+  thisEmployee[0].addShift(shift);
+};
+
+managerOne.addEmployee(`Jasmine`, `mornings`);
+managerOne.addEmployee(`Nick`, `evenings`);
+managerOne.addEmployee(`Dan`, `evenings`);
+addShift(`Dan`, `mornings`);
+managerTwo.addEmployee(`Barret`, `afternoons`);
+addShift(`Barret`, `evenings`);
+managerTwo.addEmployee(`Tim`, `mornings`);
+
+managerOne.getEmployees();
+managerTwo.getEmployees();
 
 /*
     Call the `addEmployee` method on the 
