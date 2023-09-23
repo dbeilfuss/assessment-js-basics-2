@@ -23,6 +23,7 @@
 //CODE HERE
 
 const greetUser = (username) => `Welcome back, ${username}`;
+console.log(greetUser(`dbeilfuss`));
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -48,6 +49,12 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206];
 
 //CODE HERE
 
+const canWeDeliver = (zipCode) =>
+  deliveryAreaZipCodes.includes(zipCode)
+    ? `We can deliver to ${zipCode}!`
+    : `Sadly, we cannot yet deliver to ${zipCode}.`;
+
+console.log(canWeDeliver(85205));
 /* 
     Problem 2 Continued
 
@@ -66,6 +73,21 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206];
 */
 
 // CODE HERE
+
+const canWeDeliverTwo = (zipCode) => {
+  let canDeliver = false;
+  for (let deliverableZipCode of deliveryAreaZipCodes) {
+    if (zipCode === deliverableZipCode) {
+      canDeliver = true;
+      break;
+    }
+  }
+  return canDeliver
+    ? `We can deliver to ${zipCode}!`
+    : `Sadly, we cannot yet deliver to ${zipCode}.`;
+};
+
+console.log(canWeDeliverTwo(85203));
 
 //////////////////PROBLEM 3////////////////////
 /* 
