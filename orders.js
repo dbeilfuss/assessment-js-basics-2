@@ -6,7 +6,6 @@
     to make tickets from order information.
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create a new class called `Ticket`.
@@ -31,7 +30,19 @@
 
 //CODE HERE
 
+class Ticket {
+  constructor(items, orderTime, customerID) {
+    this.items = items;
+    this.orderTime = orderTime;
+    this.customerID = customerID;
+    this.status = `queued`;
+  }
 
+  updateStatus(newStatus) {
+    this.status = newStatus;
+    console.log(`customer ${this.customerID}'s order is now ${this.status}.`);
+  }
+}
 
 /*
     Create a new instance of your class.
@@ -46,6 +57,7 @@
 
 //CODE HERE
 
+let firstTicket = new Ticket(`pizza, pizza, salad`, `5:50pm`, `47`);
 
 /*
     Call the `updateStatus` method on
@@ -54,3 +66,5 @@
 */
 
 //CODE HERE
+
+firstTicket.updateStatus(`cooking`);
