@@ -105,7 +105,7 @@ const duplicateEmployee = (originalName, newName) => {
 };
 
 duplicateEmployee(`Jasmine`, `Nick`);
-newEmployee(`Mark`, `evenings`);
+newEmployee(`Dan`, `evenings`);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -131,6 +131,22 @@ newEmployee(`Mark`, `evenings`);
 */
 
 //CODE HERE
+
+class Manager extends Employee {
+  constructor(name, shifts) {
+    super(name, shifts);
+
+    const getEmployees = () => {
+      const employeeNames = [];
+      employeeList.forEach(employee => {employeeNames.push(employee.name)});
+      }
+      console.log(employeeNames)
+    };
+
+    // oh look, I already did this up above - simple copy and paste I think
+    const addEmployees = () => {};
+  }
+}
 
 /*
     Create a new instance of your class.
