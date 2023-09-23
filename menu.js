@@ -7,7 +7,6 @@
     and filtering those arrays. 
 */
 
-
 //////////////////PROBLEM 1////////////////////
 /*  
     Create an object called `pizza` that has 6
@@ -32,7 +31,14 @@
 
 //CODE HERE
 
-
+const pizza = {
+  name: `Pizza`,
+  price: 12.99,
+  category: `Main Course`,
+  popularity: 5,
+  rating: 4,
+  tags: [`family-friendly`, `finger-food`, `easy-to-deliver`],
+};
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -43,7 +49,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.popularity);
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +59,7 @@
 */
 
 //CODE HERE
-
+console.log(pizza.tags[1]);
 
 /*
     Third, destructure the price off of the
@@ -64,16 +70,18 @@
 
 //CODE HERE
 
+const { price } = pizza;
+console.log(price);
 
 /*
-    Fourth, and last, destructure the category
-    property.
+Fourth, and last, destructure the category
+property.
 
-    Print the value of your category variable. 
+Print the value of your category variable. 
 */
 
 //CODE HERE
-
+console.log(pizza.category);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,8 +96,6 @@
 */
 
 //CODE HERE
-
-
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -106,8 +112,6 @@
 //CODE HERE
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
-
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -149,7 +153,6 @@
 */
 
 //CODE HERE
-
 
 /*
     Invoke the `filterByProperty` function passing
