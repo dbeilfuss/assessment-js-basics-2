@@ -168,9 +168,8 @@ const foodArr = [
 */
 
 //CODE HERE
-const filterByTag = (foodArr, tag) =>
-  foodArr.filter((food) => food.tags.includes(tag));
-console.log(filterByTag(foodArr, "kid-friendly"));
+const filterByTag = (tag) => foodArr.filter((food) => food.tags.includes(tag));
+console.log(filterByTag("kid-friendly"));
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
@@ -214,6 +213,11 @@ console.log(filterByTag(foodArr, "kid-friendly"));
 */
 
 //CODE HERE
+const filterByProperty = (foodArr) => {
+  let filredArr = [];
+
+  return filteredArr;
+};
 
 /*
     Invoke the `filterByProperty` function passing
