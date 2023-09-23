@@ -96,6 +96,64 @@ console.log(pizza.category);
 */
 
 //CODE HERE
+const foodArr = [
+  {
+    name: `Large Pizza`,
+    price: 12.99,
+    category: `Main Course`,
+    popularity: 5,
+    rating: 4,
+    tags: [`kid-friendly`, `finger-food`, `easy-to-deliver`, `group meal`],
+  },
+  {
+    name: `Pizza Slice`,
+    price: 6.99,
+    category: `Main Course`,
+    popularity: 5,
+    rating: 4,
+    tags: [`kid-friendly`, `finger-food`, `easy-to-deliver`],
+  },
+  {
+    name: `salad`,
+    price: 4.99,
+    category: `Side`,
+    popularity: 3,
+    rating: 3,
+    tags: [`vegetarian`],
+  },
+  {
+    name: `hamburger`,
+    price: 7.99,
+    category: `Main Course`,
+    popularity: 3,
+    rating: 4,
+    tags: [`lunch`, `finger-food`],
+  },
+  {
+    name: `cheese burger`,
+    price: 9.99,
+    category: `Main Course`,
+    popularity: 4,
+    rating: 5,
+    tags: [`lunch`, `finger-food`],
+  },
+  {
+    name: `hotdog`,
+    price: 6.99,
+    category: `Main Course`,
+    popularity: 3,
+    rating: 3,
+    tags: [`kid-friendly`, `finger-food`, `easy-to-deliver`],
+  },
+  {
+    name: `french fries`,
+    price: 3.99,
+    category: `side`,
+    popularity: 5,
+    rating: 5,
+    tags: [`kid-friendly`, `finger-food`, `easy-to-deliver`],
+  },
+];
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -110,6 +168,10 @@ console.log(pizza.category);
 */
 
 //CODE HERE
+const filteredFood = (foodArr, tag) =>
+  foodArr.filter((food) => food.tags.includes(tag));
+
+console.log(filterByTag(foodArr, "kid-friendly"));
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
 
