@@ -22,6 +22,8 @@
 
 //CODE HERE
 
+const greetUser = (username) => `Welcome back, ${username}`;
+
 //////////////////PROBLEM 2////////////////////
 /* 
     Below is an array of zip codes that are in
