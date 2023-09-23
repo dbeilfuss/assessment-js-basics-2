@@ -124,6 +124,13 @@ const deals = [
 
 //CODE HERE
 
+const setDealToTenPercent = (deal) => {
+  const separatedTitle = deal.title.split(`%`);
+  deal.title = `10%${separatedTitle[1]}`;
+};
+setDealToTenPercent(deals[0]);
+console.log(deals);
+
 /*
     The restaurant is going to continue its
     family deal for another month. 
@@ -138,3 +145,23 @@ const deals = [
 */
 
 //CODE HERE
+
+const cleanWhiteSpace = (deals) => {
+  for (let deal of deals) {
+    for (let property in deal) {
+      deal[property] = deal[property].trim();
+    }
+  }
+};
+
+cleanWhiteSpace(deals);
+console.log(deals);
+
+const changeMonth = (deal, oldMonth, newMonth) => {
+  for (let property in deal) {
+    deal[property] = deal[property].replace(oldMonth, newMonth);
+  }
+};
+
+changeMonth(deals[1], `March`, `April`);
+console.log(deals);
