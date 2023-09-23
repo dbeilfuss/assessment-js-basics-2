@@ -21,7 +21,16 @@
 
 //CODE HERE
 
+class Employee {
+  constructor(name, shifts) {
+    this.name = name;
+    this.shifts = shifts;
+  }
 
+  getSchedule() {
+    console.log(`${this.name} works on ${this.shifts}`);
+  }
+}
 
 /*
     Create a new instance of your class.
@@ -36,12 +45,37 @@
 //CODE HERE
 
 /*
+    I'm veering from the directions a bit, creating a way to invoke functions that will add employees.
+*/
+
+// Modifyable array to store the employee objects
+let employeeList = [];
+
+// Function to add new employees
+const newEmployee = (name, shifts) => {
+  const employee = new Employee(name, shifts);
+  employeeList.push(employee);
+
+  console.log(`new employee, ${name} created,`, employeeList);
+};
+
+newEmployee(`Jasmine`, `mornings`);
+
+/*
     Call the `getSchedule` method on the
     `empOne` object.
 */
 
 //CODE HERE
 
+const getSchedule = (thisName) => {
+  const thisEmployee = employeeList.filter(
+    (employee) => employee.name === thisName
+  );
+  thisEmployee[0].getSchedule();
+};
+
+getSchedule(`Jasmine`);
 
 /*
     Make a copy of the empOne object
@@ -57,7 +91,21 @@
 
 //CODE HERE
 
+const duplicateEmployee = (originalName, newName) => {
+  const originalEmployee = employeeList.filter(
+    (employee) => employee.name === originalName
+  );
+  const newEmployee = { ...originalEmployee[0], name: newName };
+  employeeList.push(newEmployee);
 
+  console.log(
+    `employee ${originalName} duplicated to ${newName}`,
+    employeeList
+  );
+};
+
+duplicateEmployee(`Jasmine`, `Nick`);
+newEmployee(`Mark`, `evenings`);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -84,8 +132,6 @@
 
 //CODE HERE
 
-
-
 /*
     Create a new instance of your class.
     Save it to a variable called `manager`.
@@ -98,7 +144,6 @@
 */
 
 //CODE HERE
-
 
 /*
     Call the `getEmployees` method on the
@@ -113,7 +158,7 @@
     'Coach' or whatever name you'd like.
 */
 
-//CODE HERE 
+//CODE HERE
 
 /*
     Call the `getEmployees` method on the
