@@ -185,7 +185,7 @@ console.log(filterByTag("kid-friendly"));
     that takes in three arguments: `property`, 
     `number`, and `type. 
 
-    The property will be a string (rating,
+    The property will be a string // not a string, a number // (rating,
     popularity, or price)
 
     The number will be the number that you want
@@ -213,17 +213,25 @@ console.log(filterByTag("kid-friendly"));
 */
 
 //CODE HERE
-const filterByProperty = (foodArr) => {
-  let filredArr = [];
+const filterByProperty = (property, number, type) => {
+  let filteredArr = [];
+
+  if (type === "below") {
+    filteredArr = foodArr.filter((object) => object[property] < number);
+  } else {
+    filteredArr = foodArr.filter((object) => object[property] > number);
+  }
 
   return filteredArr;
 };
 
 /*
-    Invoke the `filterByProperty` function passing
-    in a value for each paramter.
+Invoke the `filterByProperty` function passing
+in a value for each paramter.
 
-    You'll have to console.log to see the filtered array
+You'll have to console.log to see the filtered array
 */
 
 //CODE HERE
+
+console.log(filterByProperty(`rating`, 4, `above`));
