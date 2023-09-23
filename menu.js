@@ -168,9 +168,8 @@ const foodArr = [
 */
 
 //CODE HERE
-const filteredFood = (foodArr, tag) =>
+const filterByTag = (foodArr, tag) =>
   foodArr.filter((food) => food.tags.includes(tag));
-
 console.log(filterByTag(foodArr, "kid-friendly"));
 
 // const filteredFood = foodArr.filter(/* CALLBACK HERE */)
